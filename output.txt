@@ -1,0 +1,36 @@
+allocator> STAT
+Addresses [0:999] Unused
+allocator> RQ P1 200 F
+allocator> RQ P2 300 F
+allocator> RQ P3 100 F
+allocator> STAT
+Addresses [0:199] Process P1
+Addresses [200:499] Process P2
+Addresses [500:599] Process P3
+Addresses [600:999] Unused
+allocator> RL P2
+allocator> STAT
+Addresses [0:199] Process P1
+Addresses [200:499] Unused
+Addresses [500:599] Process P3
+Addresses [600:999] Unused
+allocator> C
+allocator> STAT
+Addresses [0:199] Process P1
+Addresses [200:299] Process P3
+Addresses [300:999] Unused
+allocator> RQ P4 100 B
+allocator> RQ P5 50 W
+allocator> STAT
+Addresses [0:199] Process P1
+Addresses [200:299] Process P3
+Addresses [300:399] Process P4
+Addresses [400:449] Process P5
+Addresses [450:999] Unused
+allocator> RQ P6 2000 F
+RQ error (code 1)
+allocator> RQ P7 10 Z
+RQ error (code 2)
+allocator> RL P999
+RL error (code 5)
+allocator> X
