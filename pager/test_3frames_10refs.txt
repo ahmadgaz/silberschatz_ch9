@@ -1,0 +1,21 @@
+page frames  : 3
+ref length   : 10
+random seed  : 1
+ref string   : 3 6 7 5 3 5 6 2 9 1 
+
+Ref  FIFO   LRU    OPT
+--------------------------
+  3  3..F   3..F   3..F
+  6  36.F   36.F   36.F
+  7  367F   367F   367F
+  5  567F   567F   365F
+  3  537F   537F   365.
+  5  537.   537.   365.
+  6  536F   536F   365.
+  2  236F   526F   265F
+  9  296F   926F   965F
+  1  291F   921F   165F
+--------------------------
+faults FIFO = 9
+faults LRU  = 9
+faults OPT  = 7
